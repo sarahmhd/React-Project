@@ -1,0 +1,41 @@
+@import '../../variables'
+.search-form
+    padding: 2rem 0
+    background: #f0eded
+    display: flex
+    align-items: center
+    .form
+        height: fit-content
+        opacity: 0.8
+        input
+            min-width: 400px
+            background: transparent
+            border: 2px solid transparent
+            padding: 0.4rem 0.8rem 0.4rem 2.7rem
+            font-size: 0.9rem
+            transition: border-color 0.3s ease-in-out
+            &:focus
+                border-color: $blue-color
+                outline: none
+                box-shadow: none
+            &::placeholder
+                font-size: 0.8rem
+        .search-icon
+            left: 0.8rem
+            top: 50%
+            transform: translateY(-50%)
+    .filter
+        .filter-icon
+            z-index: 1
+            color: #bdb0b0
+            margin-right: auto
+            top: 50%
+            transform: translateY(-50%)
+            left: 0.5rem
+
+        .filter-select
+            min-width: 200px
+            padding: 0 1rem
+            font-size: 0.8rem
+            .css-1fdsijx-ValueContainer
+                padding-left: 2.3rem

@@ -1,0 +1,24 @@
+@import '../../variables'
+
+.navbar
+    background: $main-color
+    .navbar-brand
+        width: 150px
+    .navbar-nav
+        gap: 0.9rem
+        a
+            color: $text-color
+            font-size: 1rem
+            font-weight: 400
+            text-transform: capitalize
+    .sign-in
+        border: 2px solid $blue-color
+        padding: 0px 20px
+        transition: 0.5s
+        cursor: pointer
+        a
+            text-transform: uppercase
+            font-size: 0.8rem
+            letter-spacing: 2px
+        &:hover
+            background: $blue-color
