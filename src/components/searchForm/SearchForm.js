@@ -27,7 +27,7 @@ const SearchForm = ({
   return (
     <div className="search-form">
       <div className="container">
-        <div className="search-form-content d-flex justify-content-between gap-md-3 gap-0 flex-md-column flex-lg-row">
+        <div className="search-form-content d-flex justify-content-between gap-md-3 gap-0 flex-column flex-lg-row">
           <form className="form position-relative">
             <input
               className="form-control"

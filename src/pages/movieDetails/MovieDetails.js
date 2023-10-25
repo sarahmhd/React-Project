@@ -30,13 +30,13 @@ const MovieDetails = () => {
           />
         </div>
         <div className="top-details row">
-          <div className="img col-lg-4">
+          <div className="img col-md-4">
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt=""
             />
           </div>
-          <div className="top-details-info col-lg-8 d-flex flex-column">
+          <div className="top-details-info col-md-8 d-flex flex-column">
             <div className="publish-date">
               {movie.release_date?.substring(0, 4)}
             </div>
@@ -59,15 +59,17 @@ const MovieDetails = () => {
               </div>
             </div>
             <div className="status-info d-flex justify-content-between align-items-center">
-              <span className="rate">
-                <span className="rate-val">
-                  {movie.vote_average?.toFixed(1)}{" "}
+              <div className="d-flex gap-2">
+                <span className="rate">
+                  <span className="rate-val">
+                    {movie.vote_average?.toFixed(1)}{" "}
+                  </span>
+                  IMDb
                 </span>
-                IMDb
-              </span>
-              <div className="status d-flex flex-column">
-                <span className="status-text">status</span>
-                <span className="status-val">{movie.status}</span>
+                <div className="status d-flex flex-column">
+                  <span className="status-text">status</span>
+                  <span className="status-val">{movie.status}</span>
+                </div>
               </div>
               <div className="btns d-flex align-items-center gap-2">
                 <button className="btn add">
