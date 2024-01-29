@@ -1,10 +1,14 @@
 import "./header.sass";
 
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+
+import { LoginContext } from "../../context/SignInContext";
 import logo from "../../assets/imgs/logo.svg";
 
 const Header = () => {
+  const { isLogin, toggleLogin } = useContext(LoginContext);
+
   return (
     <nav className="navbar navbar-expand-lg sticky-top py-3">
       <div className="container">
@@ -28,75 +32,58 @@ const Header = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link
+              <NavLink
                 exact="true"
-                
                 className="nav-link active"
                 aria-current="page"
                 to="/"
               >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                exact="true"
-                
-                to="/movies"
-              >
+              <Link className="nav-link" exact="true" to="/movies">
                 pages
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link active"
-                exact="true"
-                to="/movies"
-              >
+              <Link className="nav-link active" exact="true" to="/movies">
                 Movies
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                exact="true"
-                
-                to="/movies"
-              >
+              <Link className="nav-link" exact="true" to="/movies">
                 TV Shows
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                exact="true"
-                
-                to="/movies"
-              >
+              <Link className="nav-link" exact="true" to="/movies">
                 celebs
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                className="nav-link"
-                exact="true"
-                
-                to="/movies"
-              >
+              <Link className="nav-link" exact="true" to="/movies">
                 Blog
               </Link>
             </li>
-            <li className="nav-item sign-in">
-              <Link
-                className="nav-link"
-                exact="true"
-                
-                to="login"
-              >
-                Sign In
-              </Link>
-            </li>
+            {!isLogin ? (
+              <li className="nav-item sign-in">
+                <Link className="nav-link" exact="true" to="login">
+                  LogIn
+                </Link>
+              </li>
+            ) : (
+              <li className="nav-item sign-in">
+                <Link
+                  className="nav-link"
+                  exact="true"
+                  to="/"
+                  onClick={toggleLogin}
+                >
+                  LogOut
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

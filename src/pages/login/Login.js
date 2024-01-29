@@ -1,11 +1,17 @@
 import "./login.sass";
 
+import React, { useContext } from "react";
+
 import { Link } from "react-router-dom";
-import React from "react";
+import { LoginContext } from "../../context/SignInContext";
 import logo from "../../assets/imgs/logo.svg";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const { toggleLogin } = useContext(LoginContext);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -13,7 +19,17 @@ const Login = () => {
   } = useForm();
 
   const formSubmit = (data) => {
-    console.log(data);
+    const savedData = JSON.parse(localStorage.getItem("user-data"));
+    console.log(data, savedData);
+    if (
+      data.email === savedData.email &&
+      data.password === savedData.password
+    ) {
+      toggleLogin();
+      navigate("/");
+    } else {
+      alert("invalid user email or password");
+    }
   };
   return (
     <div className="wrapper">

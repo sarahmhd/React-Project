@@ -17,9 +17,15 @@ const MoviesList = () => {
     isLoading,
     totalPages,
     search,
+    setData,
   } = UseAxios(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=14bdd69ce887376edfafb09f23f78fe9&page=${page}`
+    `https://api.themoviedb.org/3/trending/all/day?api_key=14bdd69ce887376edfafb09f23f78fe9&page=${page}`,
+    ""
   );
+
+  useEffect(() => {
+    console.log(moviesData);
+  });
 
   let movies = moviesData;
   let data = movies.map((movie) => {
@@ -46,11 +52,13 @@ const MoviesList = () => {
         `https://api.themoviedb.org/3/search/multi?api_key=14bdd69ce887376edfafb09f23f78fe9&query=${query}`
       );
     }
+
+    // search(query);
   };
 
   const handleSelect = (value) => {
-    data = movies.filter((movie) => movie.media_type === value);
-    console.log(data);
+    const data = movies.filter((movie) => movie.media_type === value);
+    setData(data);
   };
 
   return (

@@ -1,11 +1,13 @@
 import "../login/login.sass";
 
 import { Link } from "react-router-dom";
-import React from "react";
 import logo from "../../assets/imgs/logo.svg";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -15,6 +17,8 @@ const Register = () => {
 
   const formSubmit = (data) => {
     console.log(data);
+    localStorage.setItem("user-data", JSON.stringify(data));
+    navigate("/login");
   };
   return (
     <div className="wrapper">
